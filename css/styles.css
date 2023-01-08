@@ -95,6 +95,7 @@ button.hero-button {
   margin-left: 50px;
 }
 .link-nav {
+  position: relative;
   display: block;
   padding: 35px 0px;
 
@@ -114,6 +115,19 @@ button.hero-button {
 }
 .header-nav .link-nav.current {
   color: var(--accentt-color);
+}
+.header-nav .link-nav.current::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  border: none;
+  border-radius: 2px;
+
+  background-color: var(--accentt-color);
 }
 
 /* Контакты */
@@ -137,6 +151,8 @@ button.hero-button {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .link-contacts:visited {
   color: var(--primary-text-color);
@@ -144,7 +160,6 @@ button.hero-button {
 .link-contacts:hover,
 .link-contacts:focus {
   color: var(--accentt-color);
-/*   fill: var(--accentt-color); */
 }
 .icon-contacts {
   margin-right: 10px;
@@ -242,10 +257,36 @@ button.hero-button {
 .area-​​work .item:not(:last-child) {
   margin-right: 30px;
 }
+.thumb-area-​​work {
+  position: relative;
+}
 .area-​​work .image {
   display: block;
   max-width: 100%;
   height: auto;
+}
+.thumb-text-box {
+  position: absolute;
+  width: 100%;
+  height: 70px;
+  bottom: 0;
+  left: 0;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-align: center;
+
+  background-color: #2F303A;
+  opacity: 0.8;
+}
+.thumb-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--white-text-color);
 }
 .area-​​work .title,
 .teem .title,
@@ -311,6 +352,8 @@ button.hero-button {
   justify-content: center;
   align-items: center;
   background-color: transparent;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-link:hover,
 .social-link:focus {
@@ -318,6 +361,7 @@ button.hero-button {
 }
 .teem .social-icon {
   fill: #afb1b8;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-link:hover .social-icon,
 .social-link:focus .social-icon {
@@ -344,13 +388,15 @@ button.hero-button {
   border: 1px solid #afb1b8;
   border-radius: 4px;
   color: #afb1b8;
-}
-.clients .icon-client {
-  fill: currentColor;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .clients .link-client:hover,
 .clients .link-client:focus {
   border: 1px solid #2196f3;
+}
+.clients .icon-client {
+  fill: currentColor;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .clients .link-client:hover .icon-client,
 .clients .link-client:focus .icon-client {
@@ -402,6 +448,7 @@ button.hero-button {
 
   text-decoration: none;
   color: rgba(255, 255, 255, 0.6);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contacts-link:hover,
 .contacts-link:focus {
@@ -422,6 +469,7 @@ button.hero-button {
 }
 .footer .social-link {
 background-color: rgba(255, 255, 255, 0.1);
+transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-link:hover,
 .social-link:focus {
@@ -454,6 +502,7 @@ background-color: rgba(255, 255, 255, 0.1);
 }
 .list-projects .link{
   display: block;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .list-projects .link:hover,
 .list-projects .link:focus {
@@ -472,10 +521,48 @@ background-color: rgba(255, 255, 255, 0.1);
 .list-projects .item:nth-child(3n + 3) {
   margin-right: 0px;
 }
+.product-action {
+  position: relative;
+}
 .projects-foto{
   display: block;
   max-width: 100%;
   height: auto;
+}
+.product-description {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  opacity: 0;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.list-projects .link:hover .product-description,
+.list-projects .link:focus .product-description{
+  opacity: 0.9;
+  background-color: #2196F3;
+}
+.description-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 322px;
+  height: 168px;
+
+  font-size: 18px;
+  line-height: 1.55;
+  letter-spacing: 0.03em;
+
+  color: var(--white-text-color);
+  opacity: 0;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.list-projects .link:hover .description-text,
+.list-projects .link:focus .description-text{
+  opacity: 1;
 }
 .projects-button {
   font-weight: 500;
@@ -485,6 +572,8 @@ background-color: rgba(255, 255, 255, 0.1);
   background-color: var(--second-background-color);
   cursor: pointer;
   letter-spacing: 0.03em;
+  transition: background-color  250ms cubic-bezier(0.4, 0, 0.2, 1),
+  box-shadow  250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .projects-button:hover,
 .projects-button:focus {
