@@ -223,10 +223,23 @@ button.hero-button {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   width: 528px;
   height: 581px;
+  animation: animate95 3000ms infinite 1000ms;
+  transform: translate(-50%, -50%);
+
   background-color: #FFFFFF;
+}
+@keyframes animate95 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 .closer-modal-button {
   position: absolute;
