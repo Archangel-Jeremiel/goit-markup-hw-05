@@ -212,7 +212,6 @@ button.hero-button {
   opacity: 1;
   z-index: 1;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
 }
 .backdrop.is-hidden {
   visibility: hidden;
@@ -225,22 +224,14 @@ button.hero-button {
   left: 50%;
   width: 528px;
   height: 581px;
-  animation: animate95 3000ms infinite 1000ms;
-  transform: translate(-50%, -50%);
-
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2);
   background-color: #FFFFFF;
 }
-@keyframes animate95 {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(0.95);
-  }
-  100% {
-    transform: scale(1);
-  }
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.9);
 }
+
 .closer-modal-button {
   position: absolute;
   top: 8px;
